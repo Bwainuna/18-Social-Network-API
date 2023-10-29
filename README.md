@@ -20,17 +20,13 @@ THEN I am able to successfully create and delete reactions to thoughts and add a
 
 ## Deployment and Repo Links
 
-Repo: https://github.com/Bwainuna/13-E-commerce
+Repo: https://github.com/Bwainuna/18-Social-Network-API
 
 ## Video Link
 
-Tutorial Video : https://youtu.be/phvBfemhwRM
+
 
 ## Sources
-
-Freecodecamp - https://www.freecodecamp.org/news/what-is-a-relational-database-rdbms-definition/
-
-stackoverflow - https://stackoverflow.com/questions/1279613/what-is-an-orm-how-does-it-work-and-how-should-i-use-one
 
 ChatGPT by OpenAI @ https://openai.com/blog/chatgpt
 
