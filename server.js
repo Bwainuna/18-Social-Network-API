@@ -24,9 +24,9 @@ mongoose.connect(process.env.MONGODB_URI, {
 });
 
 // Check MongoDB connection status
-mongoose.connection.on('connected', () => {
-  console.log('Connected to MongoDB');
-});
+mongoose.connection.on('open', () => {
+    console.log('Connected to MongoDB');
+  });  
 
 mongoose.connection.on('error', (err) => {
   console.error(`MongoDB connection error: ${err}`);
