@@ -1,4 +1,4 @@
-# 18-Social-Network-API
+# Social-Network-API
 
 ## User Story
 
