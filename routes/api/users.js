@@ -9,29 +9,13 @@ const {
   removeFriend,
 } = require('../../controllers/userController');
 
-// Define user routes
+// /api/users
+router.route("/").get(getAllUsers).post(createUser);
 
-// GET all users
-router.get('/', getAllUsers);
+// /api/users/:id
+router.route("/:id").get(getUserById).put(updateUser).delete(deleteUser);
 
-// GET a single user by _id and populated thought and friend data
-router.get('/:userId', getUserById);
-
-// POST a new user
-router.post('/', createUser);
-
-// PUT to update a user by _id
-router.put('/:userId', updateUser);
-
-// DELETE to remove a user by _id
-router.delete('/:userId', deleteUser);
-
-// BONUS: Remove a user's associated thoughts when deleted
-
-// POST to add a new friend to a user's friend list
-router.post('/:userId/friends/:friendId', addFriend);
-
-// DELETE to remove a friend from a user's friend list
-router.delete('/:userId/friends/:friendId', removeFriend);
+// /api/users/:userId/friends/:friendId
+router.route("/:userId/friends/:friendId").post(addFriend).delete(removeFriend);
 
 module.exports = router;
