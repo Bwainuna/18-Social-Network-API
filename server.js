@@ -9,7 +9,8 @@ const PORT = process.env.PORT || 3001;
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// app.use(routes); // Use the central routes file
+app.use(routes); 
+// Use the central routes file
 
 // Start the server
 db.once('open', () => {

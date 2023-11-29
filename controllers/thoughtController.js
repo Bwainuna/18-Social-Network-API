@@ -88,24 +88,25 @@ const thoughtController = {
       });
   },
 
-  // Create a reaction for a thought
-  createReaction(req, res) {
-    Thought.findOneAndUpdate(
-      { _id: req.params.thoughtId },
-      { $push: { reactions: req.body } },
-      { new: true, runValidators: true }
-    )
-      .then((dbThoughtData) => {
-        if (!dbThoughtData) {
-          return res.status(404).json({ message: 'No thought found with this id' });
-        }
-        res.json(dbThoughtData);
-      })
-      .catch((err) => {
-        console.error(err);
-        res.status(400).json(err);
-      });
-  },
+ // Create a reaction for a thought
+ createReaction(req, res) {
+  Thought.findOneAndUpdate(
+    { _id: req.params.thoughtId },
+    { $push: { reactions: { ...req.body } } }, // Ensure req.body.reactions is an array
+    { new: true, runValidators: true }
+  )
+    .then((dbThoughtData) => {
+      if (!dbThoughtData) {
+        return res.status(404).json({ message: 'No thought found with this id' });
+      }
+      res.json(dbThoughtData);
+    })
+    .catch((err) => {
+      console.error(err);
+      res.status(400).json(err);
+    });
+},
+
 
   // Delete a reaction by reactionId
   deleteReaction(req, res) {
