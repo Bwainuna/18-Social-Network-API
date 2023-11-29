@@ -24,7 +24,7 @@ Repo: https://github.com/Bwainuna/18-Social-Network-API
 
 ## Video Link
 
-
+https://youtu.be/O60YRQgfCas
 
 ## Sources
 
