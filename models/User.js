@@ -1,8 +1,6 @@
-// models/User.js
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema, model } = require('mongoose');
 
-const userSchema = new Schema({
+const UserSchema = new Schema({
   username: {
     type: String,
     unique: true,
@@ -13,7 +11,7 @@ const userSchema = new Schema({
     type: String,
     required: true,
     unique: true,
-    match: [/.+\@.+\..+/, 'Please enter a valid email address'],
+    match: [/.+@.+\..+/, 'Please enter a valid email address'],
   },
   thoughts: [
     {
@@ -29,11 +27,11 @@ const userSchema = new Schema({
   ],
 });
 
-// Create a virtual field for friendCount
-userSchema.virtual('friendCount').get(function () {
+// Virtual for friendCount
+UserSchema.virtual('friendCount').get(function () {
   return this.friends.length;
 });
 
-const User = mongoose.model('User', userSchema);
+const User = model('User', UserSchema);
 
 module.exports = User;
